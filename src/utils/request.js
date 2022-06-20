@@ -1,7 +1,6 @@
 import axios from "axios";
 import env from "@/config/config-api";
-import { hasValue } from "@/helpers/condition";
-
+import {hasValue} from 'utils/condition'
 export default class Request {
   static post(path, data, options = {}) {
     return this.request({ method: "POST", path, data, ...options });

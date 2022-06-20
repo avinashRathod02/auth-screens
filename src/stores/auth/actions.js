@@ -5,12 +5,16 @@ export const login = (params, onSuccess, onFail) => ({
   payload: { params, onSuccess, onFail },
 });
 
-export function loginSuccess() {
-  return {
-    type: types.LOGIN_SUCCESS,
-    payload: null,
-  };
-}
+export const loginSuccess = () => ({
+  type: types.LOGIN_SUCCESS,
+  payload: null,
+});
+
+export const saveUserDetails = (payload) => ({
+  type: types.LOGIN_SUCCESS,
+  payload,
+});
+
 export const logoutSuccess = () => ({
   type: types.LOGOUT_SUCCESS,
   payload: null,

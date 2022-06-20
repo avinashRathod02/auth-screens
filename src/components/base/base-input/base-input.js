@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { TextInput, StyleSheet } from "react-native";
 import { View,  Text ,AssetImage} from "@/components";
 import colors from "@/colors";
-import { hasValue } from "@/helpers/condition";
+import {hasValue} from 'utils/condition'
 import { BaseError } from "./base-error";
 
 export class BaseInput extends Component {
