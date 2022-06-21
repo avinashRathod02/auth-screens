@@ -1,22 +1,20 @@
 import React from "react";
 import { StatusBar, StyleSheet } from "react-native";
-import { View, AssetSvg, Text } from "@/components";
+import { View, AssetImage, Text } from "@/components";
 import { ButtonView } from "../button-view";
+import colors from "@/colors";
 export default (props) => {
-  const { leftIconPress, leftComponent, title, titleOnPress } = props;
+  const { leftIconPress, title, titleOnPress } = props;
 
   const RIGHT_COMPONENT = <View style={styles.icon} />;
   const LEFT_COMPONENT = () => {
     if (!leftIconPress) {
       return <View style={styles.icon} />;
     }
-    if (leftComponent) {
-      return leftComponent;
-    }
     return (
       <View style={styles.icon}>
         <ButtonView onPress={leftIconPress}>
-          <AssetSvg height={11} width={11} name={AssetSvg.icons.left_arrow} />
+          <AssetImage source={AssetImage.images.back} />
         </ButtonView>
       </View>
     );
@@ -32,6 +30,7 @@ export default (props) => {
 
   return (
     <View style={styles.cont}>
+      <StatusBar barStyle='light-content' />
       {LEFT_COMPONENT()}
       {CENTER_COMPONENT}
       {RIGHT_COMPONENT}
@@ -50,10 +49,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cont: {
-    marginTop: (StatusBar.currentHeight / 100) * 7 + 25,
-    width: "4.5%",
-    marginBottom: "2.5%",
-    backgroundColor: colors.white,
+    paddingTop: (StatusBar.currentHeight / 100) * 7 + 40,
+    width: "100%",
+    paddingBottom: "2.5%",
+    backgroundColor: colors.primary,
     flexDirection: "row",
     justifyContent: "center",
   },

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { TextInput, StyleSheet } from "react-native";
-import { View,  Text ,AssetImage} from "@/components";
+import { View, Text, AssetImage } from "@/components";
 import colors from "@/colors";
-import {hasValue} from 'utils/condition'
+import { hasValue } from "utils/condition";
 import { BaseError } from "./base-error";
 
 export class BaseInput extends Component {
@@ -15,7 +15,7 @@ export class BaseInput extends Component {
   }
 
   componentDidMount() {
-    const { input, isDebounce } = this.props;
+    const { input } = this.props;
     this.initialValue(input?.value);
   }
 
@@ -45,7 +45,7 @@ export class BaseInput extends Component {
     const {
       input: { onChange, onFocus },
       setActivity,
-      show,
+      show = true,
       leftIcon,
       placeholder,
       onSubmitEditing,
@@ -62,36 +62,29 @@ export class BaseInput extends Component {
         setActivity?.(true);
         onFocus?.(event);
       },
-
-      blurOnSubmit: inputProps?.onSubmitEditing ? false : true,
       onEndEditing: () => this.toggleFocus(false),
       onBlur: () => this.toggleFocus(false),
     };
 
     return (
       <View style={styles.container}>
-        <Text show={label} text={label} />
-        <View style={styles.inputCon}
-          >
-          <View
-          style={styles.iconCon}
-            show={leftIcon}
-          >
-            <AssetImage style={styles.icon} source={leftIcon} style={} />
+        <Text text={label} style={styles.label} />
+        <View style={styles.inputCon}>
+          <View style={styles.iconCon} show={leftIcon}>
+            <AssetImage style={styles.icon} source={leftIcon} />
           </View>
           <TextInput
             style={styles.input}
             placeholder={placeholder}
-            placeholderTextColor={colors.gray1}
+            placeholderTextColor={colors.gray2}
             allowFontScaling={false}
             onSubmitEditing={(e) => onSubmitEditing?.(e.nativeEvent.text)}
             {...methods}
             onChangeText={(enteredValue) => {
               this.setState({ inputVal: enteredValue });
               this.onChangeValue?.(enteredValue);
-                 onChange?.(enteredValue);
+              onChange?.(enteredValue);
             }}
-            
           />
         </View>
         <BaseError {...this.props} />
@@ -112,16 +105,16 @@ const styles = StyleSheet.create({
   },
   icon: {
     width: 20,
-    height:20
+    height: 20,
   },
-  input: {},
+  input: { flex: 1 },
   inputCon: {
     marginTop: "4.5%",
     marginBottom: "2.5%",
     backgroundColor: colors.white,
     paddingVertical: "1.9%",
     borderWidth: 1,
-    borderColor: colors.gray1,
+    borderColor: colors.gray2,
     borderRadius: 8,
     flexDirection: "row",
     justifyContent: "center",

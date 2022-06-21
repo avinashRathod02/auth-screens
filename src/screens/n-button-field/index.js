@@ -1,2 +1,2 @@
-import { default as NButtonField } from "./n-button-field";
+import { default as NButtonField } from "./n-button-field-container";
 export default NButtonField;

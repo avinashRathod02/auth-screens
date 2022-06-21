@@ -18,7 +18,7 @@ export default (props) => {
   };
 
   return (
-    <NavigationContainer theme={MyTheme} ref={navigationRef}>
+    <NavigationContainer theme={MyTheme}>
       <Stack.Navigator
         headerMode='none'
         initialRouteName={isLogin ? routes.PROFILE : routes.TASKS}

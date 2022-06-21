@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { routes } from "../navigation-routes";
 import { navigatorOptions as options } from "../navigation-action";
 import Login from "@/screens/auth/login";
-import Tasks from "@/screens/tasks";
+
 const AuthStack = createStackNavigator();
 
 export const AuthNavigator = (props) => {
@@ -15,11 +15,6 @@ export const AuthNavigator = (props) => {
       <AuthStack.Screen
         name={routes.LOGIN}
         component={Login}
-        options={options}
-      />
-      <AuthStack.Screen
-        name={routes.TASKS}
-        component={Tasks}
         options={options}
       />
     </React.Fragment>

@@ -1,40 +1,19 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Text, FadeIn } from "@/components";
+import { StyleSheet, Text } from "react-native";
 import colors from "@/colors";
+import { hasTextLength } from "@/utils";
+import { View } from "@/components";
 
 export const BaseError = (props) => {
-  const { meta, hideError, style } = props;
-
-  const hasError =
-    !hideError &&
-    meta?.submitFailed &&
-    meta?.error &&
-    typeof meta.error === "string";
-
-  if (!hasError) {
-    return null;
-  }
-
+  const { meta } = props;
+  const hasError = meta?.submitFailed && hasTextLength(meta?.error);
   return (
-    <FadeIn>
-      <View style={[styles.validation, style]}>
-        <Text style={styles.title}>{meta?.error}</Text>
-      </View>
-    </FadeIn>
+    <View show={hasError} style={styles.validation}>
+      <Text style={styles.title}>{meta?.error}</Text>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  title: { color: colors.primary },
-  validation: {
-    paddingVertical: 2,
-    paddingHorizontal: 5,
-    borderRadius: 3,
-    overflow: "hidden",
-    flex: 1,
-    zIndex: 100,
-    backgroundColor: "transparent",
-    justifyContent: "center",
-  },
+  title: { color: colors.primary, fontSize: 14 },
 });

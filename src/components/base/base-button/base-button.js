@@ -9,10 +9,9 @@ export const BaseButton = (props: IProps) => {
     onPress,
     loading,
     titleStyle,
-    buttonStyle,
     disabled,
-    style,
     title,
+    style,
     show = true,
   } = props;
 
@@ -21,7 +20,7 @@ export const BaseButton = (props: IProps) => {
   }
 
   const label = (
-    <Text style={[style.title, titleStyle]}>{title ?? props.children}</Text>
+    <Text style={[styles.title, titleStyle]}>{title ?? props.children}</Text>
   );
 
   const spinner = <Loading size='small' />;
@@ -30,10 +29,9 @@ export const BaseButton = (props: IProps) => {
     <View>
       <ButtonView
         onPress={onPress}
-        style={[styles.button, buttonStyle]}
+        style={[styles.button, style]}
         disabled={disabled || loading}
         opacity={disabled ? 0.7 : 1}
-        {...additionalProps}
       >
         {!loading ? label : spinner}
       </ButtonView>
@@ -42,12 +40,14 @@ export const BaseButton = (props: IProps) => {
 };
 
 const styles = StyleSheet.create({
-  title: { fontSize: 14, color: colors.width, fontWeight: 600 },
+  title: { fontSize: 14, fontWeight: "800", color: colors.white },
   button: {
+    paddingHorizontal: 25,
+    paddingVertical: 15,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.primary,
-    height: 20,
-    width: "100%",
+    borderRadius: 5,
   },
 });
