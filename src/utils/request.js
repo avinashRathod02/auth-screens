@@ -1,12 +1,12 @@
 import axios from "axios";
 import env from "@/config/config-api";
-import {hasValue} from 'utils/condition'
+import { hasValue } from "utils/condition";
 export default class Request {
   static post(path, data, options = {}) {
     return this.request({ method: "POST", path, data, ...options });
   }
 
-  static createFormData = (data, withFormData) => {
+  static createFormData = (data) => {
     const formData = new FormData();
     if (!hasValue(data)) {
       return formData;
@@ -22,19 +22,18 @@ export default class Request {
 
     const defaultHeader = {
       Accept: "application/json",
-      "Content-Type": image ? "multipart/form-data" : "application/json",
+      "Content-Type": "application/json",
     };
-
-    const params = Request.createFormData(data, withFormData);
 
     return axios({
       method,
       url,
-      data: params,
+      data,
+      headers: defaultHeader,
     })
       .then(function (response) {
         const { data } = response;
-        if (data && data.hasOwnProperty("error") && throw_error) {
+        if (data && data.hasOwnProperty("error")) {
           throw { response: { data: { ...data, status: 422 } } };
         }
         return data;

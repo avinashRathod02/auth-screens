@@ -5,7 +5,7 @@ export const loginValidator = (values) => {
   const { username, password, url } = values;
   errors.username = getError(username, ["required"]);
   errors.password = getError(password, ["required", "minNumberRequired"], {
-    minNumber: 8,
+    minNumber: 6,
   });
   errors.url = getError(url, ["required", "urlFormat"]);
   return errors;

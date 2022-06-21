@@ -3,6 +3,7 @@ import { Image } from "react-native";
 import Back from "@/assets/images/back.png";
 import Call from "@/assets/images/call.png";
 import Camera from "@/assets/images/camera.png";
+import Logo from "@/assets/images/logo.png";
 import Link from "@/assets/images/link.png";
 import Location from "@/assets/images/location.png";
 import Password from "@/assets/images/password.png";
@@ -22,6 +23,7 @@ export class AssetImage extends Component<IProps> {
     camera: Camera,
     link: Link,
     location: Location,
+    logo: Logo,
     password: Password,
     user: User,
     dp: Dp,

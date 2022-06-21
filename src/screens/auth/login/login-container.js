@@ -6,7 +6,11 @@ import { loginValidator as validate } from "stores/auth/validator";
 
 const mapStateToProps = (state) => ({
   formValues: getFormValues(LOGIN_FORM)(state) || {},
-  initialValues: { username: null, password: null, url: null },
+  initialValues: {
+    username: "practical@gmail.com",
+    password: "user@123",
+    url: "user.techno.com",
+  },
 });
 
 const LoginForm = reduxForm({ form: LOGIN_FORM, validate })(Login);

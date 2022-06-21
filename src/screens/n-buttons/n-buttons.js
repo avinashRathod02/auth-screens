@@ -3,11 +3,11 @@ import { getFormValues } from "redux-form";
 import { N_FIELD_FORM } from "@/stores/n-fields/types";
 import { connect } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { ScrollView } from "react-native";
 import { filter, range, find, map, sample } from "lodash";
 import Button from "./button";
 import { SCREEN_HEIGHT } from "@/utils";
 import { Header } from "@/components";
+import { ScrollView } from "react-native-gesture-handler";
 
 const NButtons = (props) => {
   const {
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "center",
     flex: 1,
-    height: SCREEN_HEIGHT * 0.9,
+
     alignSelf: "center",
     flexDirection: "row",
     flexWrap: "wrap",

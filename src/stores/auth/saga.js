@@ -8,8 +8,6 @@ function* login({ payload }) {
   try {
     const { data } = yield call(req.login, params);
     yield onSuccess?.(data);
-    yield put(loginSuccess());
-    yield put(loginSuccess(saveUserDetails));
   } catch (e) {
     yield onFail?.(e);
   }

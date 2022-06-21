@@ -9,9 +9,9 @@ export default (props) => {
   const backgroundColor = clicked
     ? colors.primary
     : isRandom
-    ? colors.white
-    : colors.blue;
-  const color = isRandom ? colors.black : colors.white;
+    ? colors.blue
+    : colors.white;
+  const color = isRandom ? colors.white : colors.black;
   return (
     <BaseButton
       key={id}

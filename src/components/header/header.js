@@ -4,7 +4,7 @@ import { View, AssetImage, Text } from "@/components";
 import { ButtonView } from "../button-view";
 import colors from "@/colors";
 export default (props) => {
-  const { leftIconPress, title, titleOnPress } = props;
+  const { leftIconPress, title, backgroundColor = colors.primary } = props;
 
   const RIGHT_COMPONENT = <View style={styles.icon} />;
   const LEFT_COMPONENT = () => {
@@ -22,14 +22,14 @@ export default (props) => {
 
   const CENTER_COMPONENT = (
     <View style={[styles.icon, { flex: 3 }]}>
-      <ButtonView onPress={() => titleOnPress?.()}>
+      <ButtonView>
         <Text show={title}>{title}</Text>
       </ButtonView>
     </View>
   );
 
   return (
-    <View style={styles.cont}>
+    <View style={[styles.cont, { backgroundColor }]}>
       <StatusBar barStyle='light-content' />
       {LEFT_COMPONENT()}
       {CENTER_COMPONENT}

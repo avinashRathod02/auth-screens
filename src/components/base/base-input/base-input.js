@@ -62,6 +62,7 @@ export class BaseInput extends Component {
         setActivity?.(true);
         onFocus?.(event);
       },
+      value: this.state.inputVal,
       onEndEditing: () => this.toggleFocus(false),
       onBlur: () => this.toggleFocus(false),
     };

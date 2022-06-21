@@ -18,11 +18,7 @@ export const CommonNavigator = (props) => {
         options={options}
       />
       <Stack.Screen name={routes.TASKS} component={Tasks} options={options} />
-      <Stack.Screen
-        name={routes.N_BUTTONS}
-        component={NButtons}
-        options={options}
-      />
+      <Stack.Screen name={routes.N_BUTTONS} component={NButtons} />
       <Stack.Screen
         name={routes.N_BUTTONS_FIELDS}
         component={NButtonField}
